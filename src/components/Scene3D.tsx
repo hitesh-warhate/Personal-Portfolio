@@ -38,7 +38,6 @@ function CodeRibbon({ text, position, rotation, color }: { text: string; positio
           color={color}
           anchorX="center"
           anchorY="middle"
-          font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff"
         >
           {text}
         </Text>
