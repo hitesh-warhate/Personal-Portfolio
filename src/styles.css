@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,21 +63,26 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 0.75rem;
+  --background: oklch(0.16 0.04 250);
+  --foreground: oklch(0.97 0.01 240);
+  --card: oklch(0.21 0.05 250);
+  --card-foreground: oklch(0.97 0.01 240);
+  --popover: oklch(0.21 0.05 250);
+  --popover-foreground: oklch(0.97 0.01 240);
+  --primary: oklch(0.72 0.16 230);
+  --primary-foreground: oklch(0.12 0.04 250);
+  --primary-glow: oklch(0.78 0.18 215);
+  --secondary: oklch(0.28 0.06 250);
+  --secondary-foreground: oklch(0.97 0.01 240);
+  --muted: oklch(0.24 0.04 250);
+  --muted-foreground: oklch(0.72 0.03 240);
+  --accent: oklch(0.68 0.18 195);
+  --accent-foreground: oklch(0.12 0.04 250);
+  --gradient-primary: linear-gradient(135deg, oklch(0.72 0.16 230), oklch(0.68 0.18 195));
+  --gradient-hero: linear-gradient(135deg, oklch(0.16 0.04 250) 0%, oklch(0.22 0.08 240) 50%, oklch(0.18 0.06 220) 100%);
+  --shadow-glow: 0 0 60px -10px oklch(0.72 0.16 230 / 0.5);
+  --shadow-elegant: 0 20px 60px -20px oklch(0.1 0.04 250 / 0.6);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
@@ -138,7 +144,48 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background: var(--gradient-hero);
     color: var(--color-foreground);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: oklch(0.97 0.01 240 / 0.04);
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(0.97 0.01 240 / 0.1);
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.8s ease-out both; }
