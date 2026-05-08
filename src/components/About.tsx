@@ -14,7 +14,9 @@ export const About = () => {
               <span className="text-foreground">Artificial Intelligence</span> —
               specifically <span className="text-primary">Agentic AI</span> and
               building systems on top of <span className="text-primary">LLMs</span>{" "}
-              that can reason, plan, and act.
+              that can reason, plan, and act. I've shipped an LLM-powered data
+              quality pipeline (DataSentinel), real-time computer vision with
+              OpenCV, and full-stack TypeScript apps.
             </p>
             <p>
               Alongside AI, I work across the stack — frontend, desktop, and
